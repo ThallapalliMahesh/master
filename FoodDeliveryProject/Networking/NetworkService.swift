@@ -22,10 +22,22 @@ struct NetworkService {
         request(route: .placeOrder(dishId), method: .post, parameters: params, completion: completion)
     }
     
+    func fetchCategoryDishes(categoryId: String, completion: @escaping(Result<[Dish], Error>) -> Void) {
+        request(route: .fetchCategoryDishes(categoryId), method: .get, completion: completion)
+    }
+    
+    func fetchOrders(completion: @escaping(Result<[Order], Error>) -> Void) {
+        request(route: .fetchOrders, method: .get, completion: completion)
+    }
+    
+    func fetchOrder(completion: @escaping(Result<[Order], Error>) -> Void) {
+        request(route: .fetchOrders, method: .get, completion: completion)
+    }
+       
     private func request<T : Decodable>(route: Route,
-                                      method: Method,
-                                      parameters: [String: Any]? = nil,
-                                      completion: @escaping(Result<T, Error>) -> Void) {
+                                        method: Method,
+                                        parameters: [String: Any]? = nil,
+                                        completion: @escaping(Result<T, Error>) -> Void) {
         guard let request = createRequest(route: route, method: method, parameters: parameters) else {
             completion(.failure(AppError.unknownError))
             return
@@ -78,7 +90,7 @@ struct NetworkService {
         }
     }
     
-    /// This function helps us to generate a URLRequest
+    // This function helps us to generate a URLRequest
     /// - Parameters:
     ///   - route: The path the resource in the backend
     ///   - method: Type of request to be made

@@ -9,7 +9,7 @@ import UIKit
 import ProgressHUD
 
 class DishDetailsVC: UIViewController {
-
+    
     @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var caloriesLbl: UILabel!
@@ -20,7 +20,7 @@ class DishDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         populateView()
     }
     
@@ -38,7 +38,14 @@ class DishDetailsVC: UIViewController {
         }
         ProgressHUD.show("Place Order...")
         
-       
+        NetworkService.shared.placeOrder(dishId: dish.id ?? "", name: name) { (result) in
+            switch result {
+            case .success(_):
+                ProgressHUD.showSuccess("Your order has been Received 👩‍🍳")
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
     }
     
 }

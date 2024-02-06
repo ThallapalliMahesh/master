@@ -9,7 +9,7 @@ import UIKit
 import ProgressHUD
 
 class HomeVC: UIViewController {
-
+    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var popularCollectionView: UICollectionView!
     @IBOutlet weak var specialsCollectionView: UICollectionView!
@@ -40,6 +40,7 @@ class HomeVC: UIViewController {
             }
         }
     }
+    
     
     func registerCells() {
         categoryCollectionView.register(UINib(nibName: CategoryCVC.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCVC.identifier)

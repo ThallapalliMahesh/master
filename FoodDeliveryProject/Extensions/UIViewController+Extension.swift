@@ -13,7 +13,7 @@ extension UIViewController {
     }
     
     static func instantiate() -> Self {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) as! Self
-        return storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: identifier)
     }
 }

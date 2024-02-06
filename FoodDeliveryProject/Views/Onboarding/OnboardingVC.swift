@@ -8,7 +8,7 @@
 import UIKit
 
 class OnboardingVC: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextBtn: UIButton!
@@ -29,7 +29,7 @@ class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        slides = [OnboardingSlide(title: "Delicious Dishes", description: "Experience a veriety of amazing dishes from different cultures around the world", image: UIImage(named: "ic_Apple")!), OnboardingSlide(title: "World-Class Chefs", description: "Our dishes are prepared by only the best", image: UIImage(named: "ic_Apple")!), OnboardingSlide(title: "Instant World-wide Delivery", description: "Your order will be delivered instantly irrespective of your location around the world", image: UIImage(named: "ic_Apple")!)]
+        slides = [OnboardingSlide(title: "Delicious Dishes", description: "Experience a veriety of amazing dishes from different cultures around the world", image: UIImage(named: "ic_Alamy")!), OnboardingSlide(title: "World-Class Chefs", description: "Our dishes are prepared by only the best", image: UIImage(named: "ic_World-Class-Chefs")!), OnboardingSlide(title: "Instant World-wide Delivery", description: "Your order will be delivered instantly irrespective of your location around the world", image: UIImage(named: "ic_Food Delivery Service")!)]
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
