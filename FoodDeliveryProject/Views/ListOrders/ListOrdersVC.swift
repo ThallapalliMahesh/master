@@ -22,16 +22,6 @@ class ListOrdersVC: UIViewController {
         
         ProgressHUD.show()
         
-        NetworkService.shared.fetchOrders { [weak self] (result) in
-            switch result {
-            case .success(let order):
-                ProgressHUD.dismiss()
-                self?.orders = order
-                self?.tableview.reloadData()
-            case .failure(let error):
-                ProgressHUD.showError(error.localizedDescription)
-            }
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

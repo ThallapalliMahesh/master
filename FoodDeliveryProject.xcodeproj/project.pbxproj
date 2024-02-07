@@ -23,6 +23,7 @@
 		6330C8C82B621A9000144434 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330C8C72B621A9000144434 /* CardView.swift */; };
 		6330C8CA2B6274B200144434 /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330C8C92B6274B200144434 /* DishCategory.swift */; };
 		63696A7E2B70868000ED2C29 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63696A7D2B70868000ED2C29 /* Route.swift */; };
+		6377CBDB2B7290C300617502 /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6377CBDA2B7290C300617502 /* UserDefault+Extension.swift */; };
 		638F4A3B2B67ADE200F35FCD /* DishListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F4A392B67ADE200F35FCD /* DishListTVC.swift */; };
 		638F4A3C2B67ADE200F35FCD /* DishListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638F4A3A2B67ADE200F35FCD /* DishListTVC.xib */; };
 		638F4A3F2B67B1AF00F35FCD /* ListDishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F4A3E2B67B1AF00F35FCD /* ListDishesVC.swift */; };
@@ -64,6 +65,7 @@
 		6330C8C72B621A9000144434 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6330C8C92B6274B200144434 /* DishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCategory.swift; sourceTree = "<group>"; };
 		63696A7D2B70868000ED2C29 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6377CBDA2B7290C300617502 /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
 		638F4A392B67ADE200F35FCD /* DishListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListTVC.swift; sourceTree = "<group>"; };
 		638F4A3A2B67ADE200F35FCD /* DishListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishListTVC.xib; sourceTree = "<group>"; };
 		638F4A3E2B67B1AF00F35FCD /* ListDishesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDishesVC.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				6305CF7A2B61329D009B9923 /* UIView+Extention.swift */,
 				63F3F4142B627A1400FC41FA /* String+Extension.swift */,
 				6317FFC32B638D8900A30ECD /* UIViewController+Extension.swift */,
+				6377CBDA2B7290C300617502 /* UserDefault+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				63F3F4152B627A1400FC41FA /* String+Extension.swift in Sources */,
 				6330C8CA2B6274B200144434 /* DishCategory.swift in Sources */,
 				6330C8C82B621A9000144434 /* CardView.swift in Sources */,
+				6377CBDB2B7290C300617502 /* UserDefault+Extension.swift in Sources */,
 				638F4A422B67B58900F35FCD /* ListOrdersVC.swift in Sources */,
 				63F3F4282B62BA6600FC41FA /* NetworkService.swift in Sources */,
 				63F3F41F2B6289FC00FC41FA /* DishPortraitCVC.swift in Sources */,
