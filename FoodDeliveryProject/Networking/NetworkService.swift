@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NetworkService {
     
@@ -30,13 +31,14 @@ struct NetworkService {
         request(route: .fetchOrders, method: .get, completion: completion)
     }
     
-    func fetchOrder(completion: @escaping(Result<[Order], Error>) -> Void) {
+    func fetchOrder(completion: @escaping(Result<[Dish], Error>) -> Void) {
         request(route: .fetchOrders, method: .get, completion: completion)
     }
-       
-    private func request<T : Decodable>(route: Route,
-                                        method: Method,
-                                        parameters: [String: Any]? = nil,
+    
+    // Make Request to the backend
+    private func request<T : Decodable>(route: Route, // fetch the list of all the orders in the application
+                                        method: Method, // type of method we want to execute
+                                        parameters: [String: Any]? = nil, // what ever extra information passing to the request so this is entry point and most of these data it can be used to generate the request that's why we have both parameters similar in both of the functions
                                         completion: @escaping(Result<T, Error>) -> Void) {
         guard let request = createRequest(route: route, method: method, parameters: parameters) else {
             completion(.failure(AppError.unknownError))
@@ -60,6 +62,7 @@ struct NetworkService {
         }.resume()
     }
     
+    // Decode Response
     private func handleResponse<T : Decodable>(result: Result<Data, Error>?,
                                                completion: (Result<T, Error>) -> Void) {
         guard let result = result else {
@@ -105,17 +108,18 @@ struct NetworkService {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = method.rawValue
         
-        if let params = parameters {
+        if let data = parameters {
             switch method {
             case .get:
                 var urlComponent = URLComponents(string: urlString)
-                urlComponent?.queryItems = params.map {URLQueryItem(name: $0, value: "\($1)")}
+                urlComponent?.queryItems = data.map {URLQueryItem(name: $0, value: "\($1)")}
                 urlRequest.url = urlComponent?.url
             case .post, .delete, .patch:
-                let bodyData = try? JSONSerialization.data(withJSONObject: params, options: [])
+                let bodyData = try? JSONSerialization.data(withJSONObject: data, options: [])
                 urlRequest.httpBody = bodyData
             }
         }
         return urlRequest
     }
+        
 }

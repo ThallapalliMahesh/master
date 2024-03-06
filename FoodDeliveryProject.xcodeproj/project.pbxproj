@@ -10,7 +10,6 @@
 		6305CF602B612535009B9923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305CF5F2B612535009B9923 /* AppDelegate.swift */; };
 		6305CF622B612535009B9923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305CF612B612535009B9923 /* SceneDelegate.swift */; };
 		6305CF672B612535009B9923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305CF652B612535009B9923 /* Main.storyboard */; };
-		6305CF692B612536009B9923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6305CF682B612536009B9923 /* Assets.xcassets */; };
 		6305CF6C2B612536009B9923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305CF6A2B612536009B9923 /* LaunchScreen.storyboard */; };
 		6305CF782B612FBD009B9923 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305CF772B612FBD009B9923 /* OnboardingVC.swift */; };
 		6305CF7B2B61329D009B9923 /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305CF7A2B61329D009B9923 /* UIView+Extention.swift */; };
@@ -41,6 +40,7 @@
 		63F3F42C2B62BA8800FC41FA /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3F42B2B62BA8800FC41FA /* Method.swift */; };
 		63F3F42E2B62BA9800FC41FA /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3F42D2B62BA9800FC41FA /* AppError.swift */; };
 		63F3F4302B62BAC900FC41FA /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3F42F2B62BAC900FC41FA /* APIResponse.swift */; };
+		63FDCE962B7E25E7007A18CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6305CF682B612536009B9923 /* Assets.xcassets */; };
 		B993BF35E177F71FA2ED41AC /* Pods_FoodDeliveryProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E6BB7AB1FA05175BF23FB2A /* Pods_FoodDeliveryProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -373,9 +373,9 @@
 			files = (
 				63F3F4252B629F3500FC41FA /* DishLandscapeCVC.xib in Resources */,
 				6305CF6C2B612536009B9923 /* LaunchScreen.storyboard in Resources */,
-				6305CF692B612536009B9923 /* Assets.xcassets in Resources */,
 				638F4A3C2B67ADE200F35FCD /* DishListTVC.xib in Resources */,
 				6330C8C42B62038400144434 /* CategoryCVC.xib in Resources */,
+				63FDCE962B7E25E7007A18CB /* Assets.xcassets in Resources */,
 				63F3F4202B6289FC00FC41FA /* DishPortraitCVC.xib in Resources */,
 				6305CF672B612535009B9923 /* Main.storyboard in Resources */,
 			);

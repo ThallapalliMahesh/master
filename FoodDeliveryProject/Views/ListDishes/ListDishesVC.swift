@@ -19,6 +19,9 @@ class ListDishesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         title = category.name
         registerCells()
         
@@ -33,7 +36,6 @@ class ListDishesVC: UIViewController {
             }
         }
     }
-    
     func registerCells() {
         tableview.register(UINib.init(nibName: DishListTVC.identifier, bundle: nil), forCellReuseIdentifier: DishListTVC.identifier)
     }
@@ -50,9 +52,9 @@ extension ListDishesVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = DishDetailsVC.instantiate()
-        controller.dish = dishes[indexPath.row]
+        controller.dishes = dishes[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -16,19 +16,20 @@ class DishDetailsVC: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var nameTF: UITextField!
     
-    var dish : Dish!
+    var dishes : Dish!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         populateView()
+        
     }
     
     func populateView() {
-        dishImageView.kf.setImage(with: dish.image?.asUrl)
-        titleLbl.text = dish.name
-        descriptionLbl.text = dish.description
-        caloriesLbl.text = dish.formattedCalories
+        dishImageView.kf.setImage(with: dishes.image?.asUrl)
+        titleLbl.text = dishes.name
+        descriptionLbl.text = dishes.description
+        caloriesLbl.text = dishes.formattedCalories
     }
     
     @IBAction func placeOrderButtonTapped(_ sender: Any) {
@@ -38,7 +39,7 @@ class DishDetailsVC: UIViewController {
         }
         ProgressHUD.show("Place Order...")
         
-        NetworkService.shared.placeOrder(dishId: dish.id ?? "", name: name) { (result) in
+        NetworkService.shared.placeOrder(dishId: dishes.id ?? "", name: name) { (result) in
             switch result {
             case .success(_):
                 ProgressHUD.showSuccess("Your order has been Received 👩‍🍳")
@@ -47,5 +48,4 @@ class DishDetailsVC: UIViewController {
             }
         }
     }
-    
 }

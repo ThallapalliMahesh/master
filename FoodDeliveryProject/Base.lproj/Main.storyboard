@@ -34,8 +34,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foM-ZR-fld">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foM-ZR-fld">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="3Yd-xu-Oo4">
                                                     <rect key="frame" x="16" y="516" width="382" height="137"/>
@@ -130,7 +135,7 @@
         <!--Yummie-->
         <scene sceneID="v8i-qp-C6g">
             <objects>
-                <viewController id="WhR-Gh-sO7" customClass="HomeVC" customModule="FoodDeliveryProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="WhR-Gh-sO7" customClass="HomeVC" customModule="FoodDeliveryProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H5m-zH-trL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,6 +478,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QPS-OZ-DVa">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwk-jv-PXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="HomeNC" automaticallyAdjustsScrollViewInsets="NO" id="qYD-gz-ikQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gsj-by-BVV">
@@ -484,7 +490,6 @@
                         <segue destination="WhR-Gh-sO7" kind="relationship" relationship="rootViewController" id="jX9-sa-Aqf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gwk-jv-PXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889.85507246376824" y="91.741071428571431"/>
         </scene>

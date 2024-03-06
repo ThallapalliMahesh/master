@@ -17,14 +17,14 @@ class ListOrdersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         title = "Orders"
         registerCells()
         
         ProgressHUD.show()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         NetworkService.shared.fetchOrders { [weak self] (result) in
             switch result {
             case .success(let orders):
@@ -55,7 +55,7 @@ extension ListOrdersVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = DishDetailsVC.instantiate()
-        controller.dish = orders[indexPath.row].dish
+        controller.dishes = orders[indexPath.row].dish
         navigationController?.pushViewController(controller, animated: true)
     }
 }

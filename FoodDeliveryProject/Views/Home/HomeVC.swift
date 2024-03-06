@@ -14,23 +14,26 @@ class HomeVC: UIViewController {
     @IBOutlet weak var popularCollectionView: UICollectionView!
     @IBOutlet weak var specialsCollectionView: UICollectionView!
     
-    var categories : [DishCategory] = []
-    var populars : [Dish] = []
-    var specials: [Dish] = []
+    var category : [DishCategory] = []
+    var popular : [Dish] = []
+    var special: [Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
         registerCells()
-        
         ProgressHUD.show()
         NetworkService.shared.fetchAllCategories { [weak self] (result) in
             switch result {
             case .success(let allDishes):
                 ProgressHUD.dismiss()
-                self?.categories = allDishes.categories ?? []
-                self?.populars = allDishes.populars ?? []
-                self?.specials = allDishes.specials ?? []
+                self?.category = allDishes.categories ?? []
+                self?.popular = allDishes.populars ?? []
+                self?.special = allDishes.specials ?? []
                 
                 self?.categoryCollectionView.reloadData()
                 self?.popularCollectionView.reloadData()
@@ -40,7 +43,6 @@ class HomeVC: UIViewController {
             }
         }
     }
-    
     
     func registerCells() {
         categoryCollectionView.register(UINib(nibName: CategoryCVC.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCVC.identifier)
@@ -53,11 +55,11 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case categoryCollectionView:
-            return categories.count
+            return category.count
         case popularCollectionView:
-            return populars.count
+            return popular.count
         case specialsCollectionView:
-            return specials.count
+            return special.count
         default:
             return 0
         }
@@ -67,15 +69,15 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
         switch collectionView {
         case categoryCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCVC.identifier, for: indexPath) as! CategoryCVC
-            cell.setUp(category: categories[indexPath.row])
+            cell.setUp(category: category[indexPath.row])
             return cell
         case popularCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCVC.identifier, for: indexPath) as! DishPortraitCVC
-            cell.setUp(dish: populars[indexPath.row])
+            cell.setUp(dish: popular[indexPath.row])
             return cell
         case specialsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishLandscapeCVC.identifier, for: indexPath) as! DishLandscapeCVC
-            cell.setUp(dish: specials[indexPath.row])
+            cell.setUp(dish: special[indexPath.row])
             return cell
         default:
             return UICollectionViewCell()
@@ -85,11 +87,11 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
             let controller = ListDishesVC.instantiate()
-            controller.category = categories[indexPath.row]
+            controller.category = category[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         } else {
             let controller = DishDetailsVC.instantiate()
-            controller.dish = collectionView == popularCollectionView ? populars[indexPath.row] : specials[indexPath.row]
+            controller.dishes = collectionView == popularCollectionView ? popular[indexPath.row] : special[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         }
     }
