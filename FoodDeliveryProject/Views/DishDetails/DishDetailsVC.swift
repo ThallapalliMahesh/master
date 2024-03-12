@@ -27,6 +27,7 @@ class DishDetailsVC: UIViewController {
     
     func populateView() {
         dishImageView.kf.setImage(with: dishes.image?.asUrl)
+        dishImageView.layer.backgroundColor = UIColor.blue.cgColor
         titleLbl.text = dishes.name
         descriptionLbl.text = dishes.description
         caloriesLbl.text = dishes.formattedCalories

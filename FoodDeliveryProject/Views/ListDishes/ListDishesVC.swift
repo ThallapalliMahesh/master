@@ -35,7 +35,9 @@ class ListDishesVC: UIViewController {
                 ProgressHUD.showError(error.localizedDescription)
             }
         }
+        
     }
+    
     func registerCells() {
         tableview.register(UINib.init(nibName: DishListTVC.identifier, bundle: nil), forCellReuseIdentifier: DishListTVC.identifier)
     }
