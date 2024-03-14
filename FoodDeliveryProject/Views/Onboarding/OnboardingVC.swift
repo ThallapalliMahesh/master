@@ -13,12 +13,12 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextBtn: UIButton!
     
-    var slides : [OnboardingSlides] = []
+    var collections : [OnboardingSlides] = []
     
     var currentPage = 0 {
         didSet {
             pageControl.currentPage = currentPage
-            if currentPage == slides.count - 1 {
+            if currentPage == collections.count - 1 {
                 nextBtn.setTitle("Next", for: .normal)
             } else {
                 nextBtn.setTitle("Get Started", for: .normal)
@@ -29,12 +29,12 @@ class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        slides = [OnboardingSlides(title: "Delicious Dishes", description: "Experience a veriety of amazing dishes from different cultures around the world", image: UIImage(named: "ic_Alamy")!), OnboardingSlides(title: "World-Class Chefs", description: "Our dishes are prepared by only the best", image: UIImage(named: "ic_World-Class-Chefs")!), OnboardingSlides(title: "Instant World-wide Delivery", description: "Your order will be delivered instantly irrespective of your location around the world", image: UIImage(named: "ic_Food Delivery Service")!)]
-        print(slides.count)
+        collections = [OnboardingSlides(title: "Delicious Dishes", description: "Experience a veriety of amazing dishes from different cultures around the world", image: UIImage(named: "ic_Alamy")!), OnboardingSlides(title: "World-Class Chefs", description: "Our dishes are prepared by only the best", image: UIImage(named: "ic_World-Class-Chefs")!), OnboardingSlides(title: "Instant World-wide Delivery", description: "Your order will be delivered instantly irrespective of your location around the world", image: UIImage(named: "ic_Food Delivery Service")!)]
+        print(collections.count)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        if currentPage == slides.count - 1 {
+        if currentPage == collections.count - 1 {
             let controller = storyboard?.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
@@ -49,12 +49,12 @@ class OnboardingVC: UIViewController {
 
 extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slides.count
+        return collections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCVC.identifier, for: indexPath) as! OnboardingCVC
-        cell.setup(slides[indexPath.row])
+        cell.setup(collections[indexPath.row])
         return cell
     }
     
