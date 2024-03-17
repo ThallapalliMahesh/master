@@ -17,6 +17,7 @@ class OnboardingCVC: UICollectionViewCell {
     
     func setup(_ slide : OnboardingSlides) {
         slideImageView.image = slide.image
+        slideImageView.layer.cornerRadius = 10
         slideTitleLbl.text = slide.title
         slideDescriptionLbl.text = slide.description
     }
