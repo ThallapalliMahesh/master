@@ -18,7 +18,7 @@ struct NetworkService {
         request(route: .fetchAllCategories, method: .get, completion: completion)
     }
     
-    func fetchAllCategorie(completion: @escaping(Result<Dish, Error>) -> Void) {
+    func fetchAllCategory(completion: @escaping(Result<Dish, Error>) -> Void) {
         request(route: .fetchAllCategories, method: .get, completion: completion)
     }
     
@@ -32,10 +32,6 @@ struct NetworkService {
     }
     
     func fetchOrders(completion: @escaping(Result<[Order], Error>) -> Void) {
-        request(route: .fetchOrders, method: .get, completion: completion)
-    }
-    
-    func fetchOrder(completion: @escaping(Result<[Dish], Error>) -> Void) {
         request(route: .fetchOrders, method: .get, completion: completion)
     }
     
