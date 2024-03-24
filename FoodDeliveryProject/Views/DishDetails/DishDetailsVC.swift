@@ -31,6 +31,20 @@ class DishDetailsVC: UIViewController {
         titleLbl.text = dishes.name
         descriptionLbl.text = dishes.description
         caloriesLbl.text = dishes.formattedCalories
+        tuple()
+    }
+    
+    func tuple() {
+        let datatypes = (dict: ["Dictionary":"It stores key value pairs"], array : ["Array : It is a collection of similar or dissimilar objects or premetive datatypes by accessing through the index"], "String : It Stores collection of Characters","Int : It stores Integer values", "Float : It stores floating point values", "Double : It stores long pressision float values", "Any : It stores any kind of values", "Set : It stores objects or premitive datatypes in an unordered collections", "Tuple : It is a process of grouping multiple values together into a single variable")
+        print(datatypes.dict)
+        print(datatypes.array)
+        print(datatypes.2)
+        print(datatypes.3)
+        print(datatypes.4)
+        print(datatypes.5)
+        print(datatypes.6)
+        print(datatypes.7)
+        print(datatypes.8)
     }
     
     @IBAction func placeOrderButtonTapped(_ sender: Any) {
@@ -49,4 +63,5 @@ class DishDetailsVC: UIViewController {
             }
         }
     }
+    
 }
