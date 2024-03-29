@@ -32,6 +32,8 @@ class DishDetailsVC: UIViewController {
         descriptionLbl.text = dishes.description
         caloriesLbl.text = dishes.formattedCalories
         tuple()
+        optionals()
+        typealiasing()
     }
     
     func tuple() {
@@ -45,6 +47,56 @@ class DishDetailsVC: UIViewController {
         print(datatypes.6)
         print(datatypes.7)
         print(datatypes.8)
+    }
+    
+    func optionals() {
+        var a : Int?
+        let b = 10
+        
+        a = 20
+        
+        if let value = a {
+            print("Value of a is : \(value)")
+        } else {
+            print("No value in a")
+        }
+        
+        guard let aValue = a else {
+            print("aValue is Empty")
+            return
+        }
+        print("aValue : \(aValue)")
+        
+        let add = a! + b
+        print("Addition : \(add)")
+        
+        let totalValue = aValue ?? 0 + b
+        print("Total value : \(totalValue)")
+    }
+    
+    func typealiasing() {
+        typealias travelling = Int
+        let distance : travelling = 65
+        print("Distance : \(distance)")
+        
+        typealias person = (name : String,age: Int)
+        let aPerson : person = ("Charan",24)
+        print("aPerson : \(aPerson)")
+        
+        typealias Number = (Int,Int) -> Int
+        func add(a : Int, b : Int) -> Int {
+            return a + b
+        }
+        let num : Number = add
+        print("Number : \(num(254,721))")
+        
+        typealias Closure = (Int, Int) -> Int
+        let aClosure : Closure = { (a : Int, b : Int) -> Int in
+            return a + b
+        }
+        let closure = aClosure(23,54)
+        print("Closure : \(closure)")
+        
     }
     
     @IBAction func placeOrderButtonTapped(_ sender: Any) {
