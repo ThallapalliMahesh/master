@@ -34,6 +34,7 @@ class DishDetailsVC: UIViewController {
         tuple()
         optionals()
         typealiasing()
+        sumOfValue(value: 321,21,41,654,852,74)
     }
     
     func tuple() {
@@ -97,6 +98,14 @@ class DishDetailsVC: UIViewController {
         let closure = aClosure(23,54)
         print("Closure : \(closure)")
         
+    }
+    
+    func sumOfValue(value : Int...) {
+        var num = 0
+        for number in value {
+            num = number + num
+        }
+        print("Sum of Value : \(num)")
     }
     
     @IBAction func placeOrderButtonTapped(_ sender: Any) {
